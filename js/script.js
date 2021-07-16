@@ -18,13 +18,22 @@ const word = "magnolia";
 
 
 // Display our symbols as placeholders for the chosen word's letters
+// Create & name function to update paragraphs innerText. 
 const placeholder = function (word) {
-    const placeholderLetters = [];
-        for (const letter of word) {
+    const placeholderLetters = [];     // Use an array 
+        for (const letter of word) {   // loop through array
         console.log(letter);
-        placeholderLetters.push("●");   
+        placeholderLetters.push("●");  // add ● to end of array 
         }
+    // then join the array back to the string
     wordInProgress.innerText = placeholderLetters.join("");
 }
 
-placeholder(word);
+placeholder(word);   // call function and add word as the argument
+
+guessLetterButton.addEventListener("click", function (e) {
+    e.preventDefault();  // prevent browser from reloading
+    const buttonClick = letterInput.value;  // create var to capture value of input then log it out
+    console.log(buttonClick);
+    buttonClick.value = "";   // empty the value of the input
+});
